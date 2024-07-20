@@ -29,30 +29,35 @@ document.getElementById('registrationForm').addEventListener('submit', async (ev
   const loadingIndicator = document.getElementById('loading');
 
   try {
-    // Show loading indicator
-    loadingIndicator.style.display = 'block';
+      loadingIndicator.style.display = 'block';
 
-    // Create user with email and password
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+      const user = {
+          branchName,
+          email,
+          password,
+          activities: [{ action: 'registered', timestamp: new Date().toISOString() }]
+      };
 
-    // Save additional user info in Firestore
-    await setDoc(doc(db, 'branches', user.uid), {
-      branchName: branchName,
-      email: email
-    });
+      const response = await fetch('http://localhost:3000/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              filename: `${email}.json`,
+              content: JSON.stringify(user)
+          })
+      });
 
-    console.log('User registered and branch info saved:', user.uid);
-    alert('Branch registered successfully!');
-
-    // Redirect to the sign-in page
-    window.location.href = 'signin.html';
+      if (response.ok) {
+          alert('Branch registered successfully!');
+          window.location.href = 'signin.html';
+      } else {
+          throw new Error('Failed to save data');
+      }
 
   } catch (error) {
-    console.error('Error registering user:', error);
-    alert('Error registering branch: ' + error.message);
+      console.error('Error:', error);
+      alert('Error registering branch: ' + error.message);
   } finally {
-    // Hide loading indicator
-    loadingIndicator.style.display = 'none';
+      loadingIndicator.style.display = 'none';
   }
 });
