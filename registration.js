@@ -1,28 +1,25 @@
   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "firebase/app";
-  import { getAnalytics } from "firebase/analytics";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-  apiKey: "AIzaSyA7h8G82IdXfh3mV2w_sA9lHPAl_dCs6iM",
-  authDomain: "new-bingo-10e30.firebaseapp.com",
-  databaseURL: "https://new-bingo-10e30-default-rtdb.firebaseio.com",
-  projectId: "new-bingo-10e30",
-  storageBucket: "new-bingo-10e30.appspot.com",
-  messagingSenderId: "141077448176",
-  appId: "1:141077448176:web:3adcc040f7733a3dc88935",
-  measurementId: "G-PWVP6G1KSN"
-  };
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCjR42IvRlRf00oarmzCSq5y34R9IF8QG4",
+  authDomain: "newbingo-bcdec.firebaseapp.com",
+  databaseURL: "https://newbingo-bcdec-default-rtdb.firebaseio.com",
+  projectId: "newbingo-bcdec",
+  storageBucket: "newbingo-bcdec.appspot.com",
+  messagingSenderId: "702994235307",
+  appId: "1:702994235307:web:b89986e3004c8e481c1cee",
+  measurementId: "G-0XW2JQLP97"
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-// Handle form submission
-document.getElementById('registrationForm').addEventListener('submit', async (event) => {
-  event.preventDefault();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
   const branchName = document.getElementById('branchName').value;
   const email = document.getElementById('email').value;
