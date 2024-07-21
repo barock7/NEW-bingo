@@ -1,24 +1,25 @@
-// Import the necessary Firebase functions
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  import { getAnalytics } from "firebase/analytics";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBRW2r6gW8ah6DkbME0FzLfUv6kCzloO8U",
-  authDomain: "friendsbingo-d17f7.firebaseapp.com",
-  projectId: "friendsbingo-d17f7",
-  storageBucket: "friendsbingo-d17f7.appspot.com",
-  messagingSenderId: "1028940353502",
-  appId: "1:1028940353502:web:f7cc1615e2cf21bd60174f",
-  measurementId: "G-QTYPTTNWER"
-};
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+  apiKey: "AIzaSyA7h8G82IdXfh3mV2w_sA9lHPAl_dCs6iM",
+  authDomain: "new-bingo-10e30.firebaseapp.com",
+  databaseURL: "https://new-bingo-10e30-default-rtdb.firebaseio.com",
+  projectId: "new-bingo-10e30",
+  storageBucket: "new-bingo-10e30.appspot.com",
+  messagingSenderId: "141077448176",
+  appId: "1:141077448176:web:3adcc040f7733a3dc88935",
+  measurementId: "G-PWVP6G1KSN"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 // Handle form submission
 document.getElementById('registrationForm').addEventListener('submit', async (event) => {
   event.preventDefault();
